@@ -4,10 +4,12 @@ import time
 drone = Drone()
 
 
-# used to execute a move in one line of code
+def start():  # pairs the drone and makes it takeoff
+    drone.pair()
+    drone.takeoff()
 
 
-def move(direction, power, duration):
+def move(direction, power, duration):  # used to execute a move in one line of code
     if direction == "forward":
         drone.set_pitch(power)
     elif direction == "backward":
@@ -20,17 +22,14 @@ def move(direction, power, duration):
         drone.set_throttle(power)
     elif direction == "down":
         drone.set_throttle(-power)
-    elif direction == "turn_left":
-        drone.set_yaw(power)
+    if direction == "turn_left":
+        drone.turn_degree(-power, duration)
     elif direction == "turn_right":
-        drone.set_yaw(-power)
+        drone.turn_degree(power, duration)
     drone.move(duration)
 
 
-# used for combining several movements into one line of code, enter 0 into spaces that you want to leave blank
-
-
-def combo_move_2(direction1, power1, direction2, power2, duration):
+def combo_move_2(direction1, power1, direction2, power2, duration):  # allows multiple movements in one line of code
     if direction1 == "forward":
         drone.set_pitch(power1)
     elif direction1 == "backward":
@@ -44,9 +43,9 @@ def combo_move_2(direction1, power1, direction2, power2, duration):
     elif direction1 == "down":
         drone.set_throttle(-power1)
     elif direction1 == "turn_left":
-        drone.set_yaw(power1)
+        drone.turn_degree(-power1, duration)
     elif direction1 == "turn_right":
-        drone.set_yaw(-power1)
+        drone.turn_degree(power1, duration)
 
     if direction2 == "forward":
         drone.set_pitch(power2)
@@ -61,9 +60,9 @@ def combo_move_2(direction1, power1, direction2, power2, duration):
     elif direction2 == "down":
         drone.set_throttle(-power2)
     elif direction2 == "turn_left":
-        drone.set_yaw(power2)
+        drone.turn_degree(-power2, duration)
     elif direction2 == "turn_right":
-        drone.set_yaw(-power2)
+        drone.turn_degree(power2, duration)
     drone.move(duration)
 
 
@@ -81,9 +80,9 @@ def combo_move_3(direction1, power1, direction2, power2, direction3, power3, dur
     elif direction1 == "down":
         drone.set_throttle(-power1)
     elif direction1 == "turn_left":
-        drone.set_yaw(power1)
+        drone.turn_degree(-power1, duration)
     elif direction1 == "turn_right":
-        drone.set_yaw(-power1)
+        drone.turn_degree(power1, duration)
 
     if direction2 == "forward":
         drone.set_pitch(power2)
@@ -98,9 +97,9 @@ def combo_move_3(direction1, power1, direction2, power2, direction3, power3, dur
     elif direction2 == "down":
         drone.set_throttle(-power2)
     elif direction2 == "turn_left":
-        drone.set_yaw(power2)
+        drone.turn_degree(-power2, duration)
     elif direction2 == "turn_right":
-        drone.set_yaw(-power2)
+        drone.turn_degree(power2, duration)
 
     if direction3 == "forward":
         drone.set_pitch(power3)
@@ -115,9 +114,9 @@ def combo_move_3(direction1, power1, direction2, power2, direction3, power3, dur
     elif direction3 == "down":
         drone.set_throttle(-power3)
     elif direction3 == "turn_left":
-        drone.set_yaw(power3)
+        drone.turn_degree(-power3, duration)
     elif direction3 == "turn_right":
-        drone.set_yaw(-power3)
+        drone.turn_degree(power3, duration)
     drone.move(duration)
 
 
@@ -135,9 +134,9 @@ def combo_move_4(direction1, power1, direction2, power2, direction3, power3, dir
     elif direction1 == "down":
         drone.set_throttle(-power1)
     elif direction1 == "turn_left":
-        drone.set_yaw(power1)
+        drone.turn_degree(-power1, duration)
     elif direction1 == "turn_right":
-        drone.set_yaw(-power1)
+        drone.turn_degree(power1, duration)
 
     if direction2 == "forward":
         drone.set_pitch(power2)
@@ -152,9 +151,9 @@ def combo_move_4(direction1, power1, direction2, power2, direction3, power3, dir
     elif direction2 == "down":
         drone.set_throttle(-power2)
     elif direction2 == "turn_left":
-        drone.set_yaw(power2)
+        drone.turn_degree(-power2, duration)
     elif direction2 == "turn_right":
-        drone.set_yaw(-power2)
+        drone.turn_degree(power2, duration)
 
     if direction3 == "forward":
         drone.set_pitch(power3)
@@ -169,9 +168,9 @@ def combo_move_4(direction1, power1, direction2, power2, direction3, power3, dir
     elif direction3 == "down":
         drone.set_throttle(-power3)
     elif direction3 == "turn_left":
-        drone.set_yaw(power3)
+        drone.turn_degree(-power3, duration)
     elif direction3 == "turn_right":
-        drone.set_yaw(-power3)
+        drone.turn_degree(power3, duration)
 
     if direction4 == "forward":
         drone.set_pitch(power4)
@@ -186,9 +185,9 @@ def combo_move_4(direction1, power1, direction2, power2, direction3, power3, dir
     elif direction4 == "down":
         drone.set_throttle(-power4)
     elif direction4 == "turn_left":
-        drone.set_yaw(power4)
+        drone.turn_degree(-power4, duration)
     elif direction4 == "turn_right":
-        drone.set_yaw(-power4)
+        drone.turn_degree(power4, duration)
     drone.move(duration)
 
 
@@ -198,11 +197,8 @@ def set_lights(r, g, b, brightness):
     time.sleep(0.05)
 
 
-def start():
-    drone.pair()
-    drone.takeoff()
-
-
-def accurate_turn(direction, degrees, duration):
+def turn(direction, degrees, duration):
     if direction == "right":
-        drone.turn_degree(degrees, duration, 1)
+        drone.turn_degree(degrees, duration)
+    elif direction == "left":
+        drone.turn_degree(degrees, duration)

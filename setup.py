@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='EasyCodrone-EduCommands',
-    version='0.0.1',
+    version='0.0.2',
     packages=['easycodronecommands'],
     url='',
     license='MIT License  Copyright (c) [2022] [Alex Birdsall]  Permission is hereby granted, free of charge, '
