@@ -197,6 +197,9 @@ def set_lights(r, g, b, brightness):
     time.sleep(0.05)
 
 
+print("Ignore this")
+
+
 def turn(direction, degrees, duration):
     if direction == "right":
         drone.turn_degree(degrees, duration)
