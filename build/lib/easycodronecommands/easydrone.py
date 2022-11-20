@@ -298,8 +298,8 @@ def accurate_move(direction, distance, power):
 def accurate_combo_move_2(direction1, distance1, power1, direction2, distance2, power2, duration):
     """
 
-    :param power2: int 100 to -100
     :param duration: positive float
+    :param power2: int 100 to -100
     :param power1: int 100 to -100
     :param direction1: str(forward, backward, left, right, up, down, turn_left, turn_right)
     :param distance1: distance in inches
@@ -335,7 +335,7 @@ def accurate_combo_move_2(direction1, distance1, power1, direction2, distance2, 
     elif direction1 == "down":
         distance_calc = drone.get_pos_y(unit="in")
         drone.set_throttle(-power1)
-        while distance_calc < distance1:
+        while distance_calc > distance1:
             drone.move(0.05)
     elif direction1 == "turn_left":
         drone.set_yaw(power1)
@@ -370,13 +370,13 @@ def accurate_combo_move_2(direction1, distance1, power1, direction2, distance2, 
     elif direction2 == "down":
         distance_calc = drone.get_pos_y(unit="in")
         drone.set_throttle(-power2)
-        while distance_calc < distance2:
+        while distance_calc > distance2:
             drone.move(0.05)
     elif direction2 == "turn_left":
         drone.set_yaw(power2)
     elif direction2 == "turn_right":
         drone.set_yaw(-power2)
-    drone.move(duration)
+        drone.move(duration)
 
 
 def accurate_combo_move_3(direction1, distance1, power1, direction2, distance2, power2, direction3, distance3, power3,
@@ -424,7 +424,7 @@ def accurate_combo_move_3(direction1, distance1, power1, direction2, distance2, 
     elif direction1 == "down":
         distance_calc = drone.get_pos_y(unit="in")
         drone.set_throttle(-power1)
-        while distance_calc < distance1:
+        while distance_calc > distance1:
             drone.move(0.05)
     elif direction1 == "turn_left":
         drone.set_yaw(power1)
@@ -459,7 +459,7 @@ def accurate_combo_move_3(direction1, distance1, power1, direction2, distance2, 
     elif direction2 == "down":
         distance_calc = drone.get_pos_y(unit="in")
         drone.set_throttle(-power2)
-        while distance_calc < distance2:
+        while distance_calc > distance2:
             drone.move(0.05)
     elif direction2 == "turn_left":
         drone.set_yaw(power2)
@@ -494,7 +494,7 @@ def accurate_combo_move_3(direction1, distance1, power1, direction2, distance2, 
     elif direction3 == "down":
         distance_calc = drone.get_pos_y(unit="in")
         drone.set_throttle(-power3)
-        while distance_calc < distance3:
+        while distance_calc > distance3:
             drone.move(0.05)
     elif direction3 == "turn_left":
         drone.set_yaw(power3)
@@ -551,7 +551,7 @@ def accurate_combo_move_4(direction1, distance1, power1, direction2, distance2, 
     elif direction1 == "down":
         distance_calc = drone.get_pos_y(unit="in")
         drone.set_throttle(-power1)
-        while distance_calc < distance1:
+        while distance_calc > distance1:
             drone.move(0.05)
     elif direction1 == "turn_left":
         drone.set_yaw(power1)
@@ -586,7 +586,7 @@ def accurate_combo_move_4(direction1, distance1, power1, direction2, distance2, 
     elif direction2 == "down":
         distance_calc = drone.get_pos_y(unit="in")
         drone.set_throttle(-power2)
-        while distance_calc < distance2:
+        while distance_calc > distance2:
             drone.move(0.05)
     elif direction2 == "turn_left":
         drone.set_yaw(power2)
@@ -621,7 +621,7 @@ def accurate_combo_move_4(direction1, distance1, power1, direction2, distance2, 
     elif direction3 == "down":
         distance_calc = drone.get_pos_y(unit="in")
         drone.set_throttle(-power3)
-        while distance_calc < distance3:
+        while distance_calc > distance3:
             drone.move(0.05)
     elif direction3 == "turn_left":
         drone.set_yaw(power3)
@@ -656,7 +656,7 @@ def accurate_combo_move_4(direction1, distance1, power1, direction2, distance2, 
     elif direction4 == "down":
         distance_calc = drone.get_pos_y(unit="in")
         drone.set_throttle(-power4)
-        while distance_calc < distance4:
+        while distance_calc > distance4:
             drone.move(0.05)
     elif direction4 == "turn_left":
         drone.set_yaw(power4)
